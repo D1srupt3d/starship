@@ -1,46 +1,74 @@
-# startship
-
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
+
+# Increases the command timeout to prevent warnings
+command_timeout = 1000
 
 # Removes the blank line between shell prompts
 add_newline = false
 
-# Replace the "❯" symbol in the prompt with "➜"
+# Custom format configuration
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$git_metrics\
+$fill\
+$kubernetes\
+$terraform\
+$docker_context\
+$nodejs\
+$package\
+$memory_usage\
+$battery\
+$time\
+$shell\
+$cmd_duration\
+$line_break\
+$character"""
+
+# Fill module
+[fill]
+symbol = "─"
+style = "bold black"
+
+# Replace the "❯" symbol in the prompt with "󰆍]"
 [character]
-success_symbol = "[➜](bold green)"
-error_symbol = "[✘](bold red)"
+success_symbol = "[󰆍](#FF0000)"
+error_symbol = "[󰆍](#FF0000)"
 
 # Cloud/Infrastructure tools
 [terraform]
-symbol = "🏗️ "
-format = "via [$symbol$version]($style) "
+symbol = "󱁢 "
+format = "[$symbol$version]($style) "
 style = "bold 105"
 
 [kubernetes]
-symbol = "⎈ "
+symbol = "󱃾 "
 format = '[$symbol$context( \($namespace\))]($style) '
 style = "bold blue"
 disabled = false
 
 [docker_context]
-symbol = "🐳 "
+symbol = "󰡨 "
 format = "via [$symbol$context]($style) "
 style = "blue bold"
 
 # Development tools
 [nodejs]
-symbol = "⬢ "
+symbol = "󰎙 "
 format = "via [$symbol$version](bold green) "
 
 [package]
-symbol = "📦 "
+symbol = "󰏗 "
 format = "[$symbol$version]($style) "
 style = "208"
 
 # Git information
 [git_branch]
-symbol = "🌱 "
+symbol = "󰘬 "
 format = "[$symbol$branch]($style) "
 style = "bold purple"
 
@@ -61,7 +89,7 @@ disabled = false
 
 [directory]
 style = "bold cyan"
-read_only = "🔒 "
+read_only = "󰌾 "
 truncation_length = 4
 truncate_to_repo = false
 
@@ -73,38 +101,24 @@ format = "took [$duration](bold yellow) "
 # Time
 [time]
 disabled = false
-format = '[\[ $time \]](bold white) '
+format = '[\[ $time \]](#A575F4) '
 time_format = "%R"
+style = "bold #A575F4"
 
 # Shell indicator
 [shell]
-zsh_indicator = "🪶 "
 fish_indicator = "🐟 "
 powershell_indicator = "⚡ "
 unknown_indicator = "❓ "
 style = "cyan bold"
 disabled = false
 
-# Memory usage module
-[memory_usage]
-disabled = false
-threshold = -1
-symbol = "🧠 "
-style = "bold dimmed green"
-
-# CPU usage
-[custom.cpu]
-command = "top -bn1 | grep 'Cpu(s)' | awk '{print $2}'"
-when = "true"
-format = "CPU: [$output]($style)"
-style = "bold red"
-
 # Battery module
 [battery]
 full_symbol = "🔋 "
 charging_symbol = "⚡️ "
 discharging_symbol = "💀 "
-unknown_symbol = "❓ "
+unknown_symbol = "⌛ "
 empty_symbol = "! "
 
 [[battery.display]]
@@ -119,4 +133,18 @@ style = "bold yellow"
 threshold = 20
 style = "bold red"
 
+# Memory usage
+[memory_usage]
+disabled = false
+threshold = -1
+symbol = "󰍛 "
+style = "bold dimmed green"
+format = "$symbol[${ram}]($style) "
+
+# Add after your other git configurations
+[git_metrics]
+added_style = "bold green"
+deleted_style = "bold red"
+format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
+disabled = false
 

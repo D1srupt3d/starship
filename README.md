@@ -7,7 +7,7 @@ This is a customized configuration for the [Starship](https://starship.rs/) cros
 ### Global Settings
 - No blank line between prompts (`add_newline = false`)
 - Extended command timeout of 1000ms to prevent warnings
-- Custom prompt symbol: `\uf40d` (displays as 󰆍) in red (#FF0000)
+- Custom prompt symbol: `\uf40d` → 󰆍 in red (#FF0000)
 
 ### Prompt Layout
 The prompt is organized in a single line with the following components:
@@ -16,20 +16,20 @@ username @ hostname directory git_info [fill] k8s terraform docker node package 
 ```
 
 ### Development Tools
-- **Node.js**: Shows version with `\ue718` (displays as 󰎙)
-- **Package**: Displays version with `\uf487` (displays as 󰏗)
+- **Node.js**: Shows version with icon `\ue718` → 󰎙
+- **Package**: Displays version with icon `\uf487` → 󰏗
 - **Git Information**:
-  - Branch (`\uf418` displays as 󰘬)
+  - Branch icon: `\uf418` → 󰘬
   - Status (shows modified/staged/etc.)
   - Metrics (added/deleted lines)
 
 ### Cloud & Infrastructure
-- **Terraform**: Shows version with `\uf1c2` (displays as 󱁢)
-- **Kubernetes**: Displays context and namespace with `\uf43e` (displays as 󱃾)
-- **Docker**: Shows context with `\uf308` (displays as 󰡨)
+- **Terraform**: Shows version with icon `\uf1c2` → 󱁢
+- **Kubernetes**: Displays context and namespace with icon `\uf43e` → 󱃾
+- **Docker**: Shows context with icon `\uf308` → 󰡨
 
 ### System Information
-- **Memory Usage**: RAM usage with `\uf85a` (displays as 󰍛)
+- **Memory Usage**: RAM usage with icon `\uf85a` → 󰍛
 - **Battery Status**: 
   - Multiple thresholds (100%, 50%, 20%)
   - Different icons for various states:
@@ -47,7 +47,7 @@ username @ hostname directory git_info [fill] k8s terraform docker node package 
 ### Directory
 - Shows current directory path
 - Truncates to 4 folders
-- Read-only indicator (`\uf43e` displays as 󰌾)
+- Read-only indicator: `\uf43e` → 󰌾
 - Does not truncate to git repo root
 
 ### Shell Indicator
@@ -69,20 +69,19 @@ username @ hostname directory git_info [fill] k8s terraform docker node package 
 - Requires a [Nerd Font](https://www.nerdfonts.com/) for the custom icons
   - Recommended: [FiraCode Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode)
 
-## Nerd Font Icons Reference
-This configuration uses Nerd Font icons. Here are the Unicode points for each icon:
+## Nerd Font Icons Quick Reference
 
-| Component   | Unicode | Icon Display |
-|------------|---------|--------------|
-| Prompt     | \uf40d  | 󰆍           |
-| Node.js    | \ue718  | 󰎙           |
-| Package    | \uf487  | 󰏗           |
-| Git Branch | \uf418  | 󰘬           |
-| Terraform  | \uf1c2  | 󱁢           |
-| Kubernetes | \uf43e  | 󱃾           |
-| Docker     | \uf308  | 󰡨           |
-| Memory     | \uf85a  | 󰍛           |
-| Read-only  | \uf43e  | 󰌾           |
+| Icon Purpose | Unicode    | Display |
+|-------------|------------|---------|
+| Prompt      | `\uf40d`   | 󰆍      |
+| Node.js     | `\ue718`   | 󰎙      |
+| Package     | `\uf487`   | 󰏗      |
+| Git Branch  | `\uf418`   | 󰘬      |
+| Terraform   | `\uf1c2`   | 󱁢      |
+| Kubernetes  | `\uf43e`   | 󱃾      |
+| Docker      | `\uf308`   | 󰡨      |
+| Memory      | `\uf85a`   | 󰍛      |
+| Read-only   | `\uf43e`   | 󰌾      |
 
 ## Installation
 1. Install Starship: `curl -sS https://starship.rs/install.sh | sh`

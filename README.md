@@ -7,7 +7,7 @@ This is a customized configuration for the [Starship](https://starship.rs/) cros
 ### Global Settings
 - No blank line between prompts (`add_newline = false`)
 - Extended command timeout of 1000ms to prevent warnings
-- Custom prompt symbol: "󰆍" in red (#FF0000)
+- Custom prompt symbol: `\uf40d` (displays as 󰆍) in red (#FF0000)
 
 ### Prompt Layout
 The prompt is organized in a single line with the following components:
@@ -16,23 +16,28 @@ username @ hostname directory git_info [fill] k8s terraform docker node package 
 ```
 
 ### Development Tools
-- **Node.js**: Shows version with 󰎙 icon
-- **Package**: Displays version with 󰏗 icon
+- **Node.js**: Shows version with `\ue718` (displays as 󰎙)
+- **Package**: Displays version with `\uf487` (displays as 󰏗)
 - **Git Information**:
-  - Branch (󰘬 icon)
+  - Branch (`\uf418` displays as 󰘬)
   - Status (shows modified/staged/etc.)
   - Metrics (added/deleted lines)
 
 ### Cloud & Infrastructure
-- **Terraform**: Shows version with 󱁢 icon
-- **Kubernetes**: Displays context and namespace with 󱃾 icon
-- **Docker**: Shows context with 󰡨 icon
+- **Terraform**: Shows version with `\uf1c2` (displays as 󱁢)
+- **Kubernetes**: Displays context and namespace with `\uf43e` (displays as 󱃾)
+- **Docker**: Shows context with `\uf308` (displays as 󰡨)
 
 ### System Information
-- **Memory Usage**: RAM usage with 󰍛 icon
+- **Memory Usage**: RAM usage with `\uf85a` (displays as 󰍛)
 - **Battery Status**: 
   - Multiple thresholds (100%, 50%, 20%)
-  - Different icons for various states (🔋, ⚡️, 💀, ⌛, !)
+  - Different icons for various states:
+    - Full: 🔋
+    - Charging: ⚡️
+    - Discharging: 💀
+    - Unknown: ⌛
+    - Empty: !
   - Color-coded (green → yellow → red)
 
 ### Time & Performance
@@ -42,7 +47,7 @@ username @ hostname directory git_info [fill] k8s terraform docker node package 
 ### Directory
 - Shows current directory path
 - Truncates to 4 folders
-- Read-only indicator (󰌾)
+- Read-only indicator (`\uf43e` displays as 󰌾)
 - Does not truncate to git repo root
 
 ### Shell Indicator
@@ -62,17 +67,45 @@ username @ hostname directory git_info [fill] k8s terraform docker node package 
 ## Dependencies
 - Requires [Starship](https://starship.rs/) to be installed
 - Requires a [Nerd Font](https://www.nerdfonts.com/) for the custom icons
+  - Recommended: [FiraCode Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode)
+
+## Nerd Font Icons Reference
+This configuration uses Nerd Font icons. Here are the Unicode points for each icon:
+
+| Component   | Unicode | Icon Display |
+|------------|---------|--------------|
+| Prompt     | \uf40d  | 󰆍           |
+| Node.js    | \ue718  | 󰎙           |
+| Package    | \uf487  | 󰏗           |
+| Git Branch | \uf418  | 󰘬           |
+| Terraform  | \uf1c2  | 󱁢           |
+| Kubernetes | \uf43e  | 󱃾           |
+| Docker     | \uf308  | 󰡨           |
+| Memory     | \uf85a  | 󰍛           |
+| Read-only  | \uf43e  | 󰌾           |
 
 ## Installation
 1. Install Starship: `curl -sS https://starship.rs/install.sh | sh`
-2. Place this configuration at `~/.config/starship.toml`
-3. Add the following to your shell's RC file (e.g., `.zshrc`, `.bashrc`):
+2. Install FiraCode Nerd Font:
+   ```bash
+   # macOS with Homebrew
+   brew tap homebrew/cask-fonts
+   brew install --cask font-fira-code-nerd-font
+   ```
+   For other systems, download from [Nerd Fonts releases](https://github.com/ryanoasis/nerd-fonts/releases)
+3. Place this configuration at `~/.config/starship.toml`
+4. Add the following to your shell's RC file (e.g., `.zshrc`, `.bashrc`):
    ```bash
    eval "$(starship init bash)"  # or zsh/fish depending on your shell
    ```
+5. Configure your terminal to use FiraCode Nerd Font
 
 ## Notes
 - Some icons require a Nerd Font to display correctly
 - The prompt is optimized for performance with a 1000ms command timeout
 - Git metrics are enabled by default
 - Memory usage monitoring is always active
+- If icons aren't displaying correctly:
+  1. Verify FiraCode Nerd Font is installed
+  2. Ensure your terminal is configured to use the font
+  3. Try restarting your terminal application

@@ -14,7 +14,7 @@ This is a customized configuration for the [Starship](https://starship.rs/) cros
 
 The prompt is organized in a single line with the following components:
 
-```
+```text
 username @ hostname directory git_info [fill] k8s terraform docker node package memory battery time shell cmd_duration
 ```
 

@@ -5,17 +5,21 @@ This is a customized configuration for the [Starship](https://starship.rs/) cros
 ## Features
 
 ### Global Settings
+
 - No blank line between prompts (`add_newline = false`)
 - Extended command timeout of 1000ms to prevent warnings
 - Custom prompt symbol: `\uf40d` → 󰆍 in red (#FF0000)
 
 ### Prompt Layout
+
 The prompt is organized in a single line with the following components:
+
 ```
 username @ hostname directory git_info [fill] k8s terraform docker node package memory battery time shell cmd_duration
 ```
 
 ### Development Tools
+
 - **Node.js**: Shows version with icon `\ue718` → 󰎙
 - **Package**: Displays version with icon `\uf487` → 󰏗
 - **Git Information**:
@@ -24,13 +28,15 @@ username @ hostname directory git_info [fill] k8s terraform docker node package 
   - Metrics (added/deleted lines)
 
 ### Cloud & Infrastructure
+
 - **Terraform**: Shows version with icon `\uf1c2` → 󱁢
 - **Kubernetes**: Displays context and namespace with icon `\uf43e` → 󱃾
 - **Docker**: Shows context with icon `\uf308` → 󰡨
 
 ### System Information
+
 - **Memory Usage**: RAM usage with icon `\uf85a` → 󰍛
-- **Battery Status**: 
+- **Battery Status**:
   - Multiple thresholds (100%, 50%, 20%)
   - Different icons for various states:
     - Full: 🔋
@@ -41,21 +47,25 @@ username @ hostname directory git_info [fill] k8s terraform docker node package 
   - Color-coded (green → yellow → red)
 
 ### Time & Performance
+
 - **Time**: Shows current time in HH:MM format
 - **Command Duration**: Shows execution time for commands taking >500ms
 
 ### Directory
+
 - Shows current directory path
 - Truncates to 4 folders
 - Read-only indicator: `\uf43e` → 󰌾
 - Does not truncate to git repo root
 
 ### Shell Indicator
+
 - Fish: 🐟
 - PowerShell: ⚡
 - Unknown: ❓
 
 ## Style Customizations
+
 - Username: Bold blue
 - Hostname: Bold red
 - Directory: Bold cyan
@@ -65,6 +75,7 @@ username @ hostname directory git_info [fill] k8s terraform docker node package 
 - Fill characters: Bold black "─"
 
 ## Dependencies
+
 - Requires [Starship](https://starship.rs/) to be installed
 - Requires a [Nerd Font](https://www.nerdfonts.com/) for the custom icons
   - Recommended: [FiraCode Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode)
@@ -84,22 +95,28 @@ username @ hostname directory git_info [fill] k8s terraform docker node package 
 | Read-only   | `\uf43e`   | 󰌾      |
 
 ## Installation
+
 1. Install Starship: `curl -sS https://starship.rs/install.sh | sh`
 2. Install FiraCode Nerd Font:
+
    ```bash
    # macOS with Homebrew
    brew tap homebrew/cask-fonts
    brew install --cask font-fira-code-nerd-font
    ```
+
    For other systems, download from [Nerd Fonts releases](https://github.com/ryanoasis/nerd-fonts/releases)
 3. Place this configuration at `~/.config/starship.toml`
 4. Add the following to your shell's RC file (e.g., `.zshrc`, `.bashrc`):
+
    ```bash
    eval "$(starship init bash)"  # or zsh/fish depending on your shell
    ```
+
 5. Configure your terminal to use FiraCode Nerd Font
 
 ## Notes
+
 - Some icons require a Nerd Font to display correctly
 - The prompt is optimized for performance with a 1000ms command timeout
 - Git metrics are enabled by default
